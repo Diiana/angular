@@ -1,0 +1,63 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html ng-app="Encuesta">
+
+    <head>
+        <title>Encuesta</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+    </head>
+
+    <body ng-controller="EncuestaController">
+
+        <h1><u>Encuesta en Angular js</u></h1>
+
+        <ul>
+            <li ng-repeat="pregunta in preguntas">{{pregunta.cuestionario}}
+                <p ng-repeat="respuestass in pregunta.respuestas">
+                    <input type="radio" value="{{pregunta.idPregunta}}" name="{{pregunta.idPregunta}}">{{respuestass.respuesta}}
+                </p>
+            </li>
+        </ul>
+
+        <script>
+
+            var app = angular.module("Encuesta", []);
+
+            function EncuestaController($scope) {
+
+                $scope.preguntas = [{
+                        idPregunta: 1,
+                        cuestionario: "¿Que color te gusta más?",
+                        respuestas: [{'id': 1, 'respuesta': "Rojo"}, {'id': 2, 'respuesta': "Azul"}, {'id': 3, 'respuesta': "Amarillo"}],
+                        seleccionada: 0,
+                        correcta:2
+                        
+                    }, {
+                        idPregunta: 2,
+                        cuestionario: "¿Que comida prefieres?",
+                        respuestas: [{'id': 1, 'respuesta': "Macarrones"}, {'id': 2, 'respuesta': "Canelones"}, {'id': 3, 'respuesta': "Alboldigas"}],
+                        seleccionada: 0,
+                        correcta:3
+                    }, {
+                        idPregunta: 3,
+                        cuestionario: "¿Que canal de televisión sueles ver?",
+                        respuestas: [{'id': 1, respuesta: "Antena 3"}, {'id': 2, 'respuesta': "Telecinco"}, {'id': 3, 'respuesta': "La 1"}],
+                        seleccionada: 0,
+                        correcta:1
+                    }];
+
+            }
+
+
+
+
+        </script>
+
+    </body>
+
+
+</html>
